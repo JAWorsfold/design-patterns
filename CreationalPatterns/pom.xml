@@ -18,14 +18,13 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.derby</groupId>
-            <artifactId>derby</artifactId>
-            <version>10.15.2.0</version>
-            <scope>test</scope>
+            <artifactId>derbyclient</artifactId>
+            <version>10.14.2.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.derby</groupId>
-            <artifactId>derbyclient</artifactId>
-            <version>10.15.2.0</version>
+            <artifactId>derby</artifactId>
+            <version>10.14.2.0</version>
         </dependency>
     </dependencies>
 
