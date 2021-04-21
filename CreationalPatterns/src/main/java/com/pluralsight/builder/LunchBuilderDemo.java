@@ -4,13 +4,15 @@ public class LunchBuilderDemo {
 
     public static void main(String[] args) {
 
-        LunchBuilder lunchBuilder = new LunchBuilder();
-
         // using setters, not immutable, has issues
-        lunchBuilder.setBread("Wheat");
-        lunchBuilder.setCondiments("Lettuce");
-        lunchBuilder.setDressing("Mustard");
-        lunchBuilder.setMeat("Ham");
+//        LunchBuilder lunchBuilder = new LunchBuilder();
+//        lunchBuilder.setBread("Wheat");
+//        lunchBuilder.setCondiments("Lettuce");
+//        lunchBuilder.setDressing("Mustard");
+//        lunchBuilder.setMeat("Ham");
+
+        // using telescoping constructors
+        LunchBuilder lunchBuilder = new LunchBuilder("Wheat", "Lettuce", "Mustard", "Ham");
 
         System.out.println(lunchBuilder.getBread());
         System.out.println(lunchBuilder.getCondiments());
