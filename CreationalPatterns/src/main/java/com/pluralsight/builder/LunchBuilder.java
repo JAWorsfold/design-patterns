@@ -1,34 +1,48 @@
 package com.pluralsight.builder;
 
-import lombok.Data;
 import lombok.Getter;
 
-// @Data for including setters
-@Getter // now immutable
+@Getter
 public class LunchBuilder {
 
-    private String bread;
-    private String condiments;
-    private String dressing;
-    private String meat;
+    public static class Builder {
+        private String bread;
+        private String condiments;
+        private String dressing;
+        private String meat;
 
-    public LunchBuilder() {}
+        public LunchBuilder build() {
+            return new LunchBuilder(this);
+        }
 
-    // example telescoping constructors
-    public LunchBuilder(String bread) {
-        this.bread = bread;
+        public Builder bread(String bread) {
+            this.bread = bread;
+            return this;
+        }
+        public Builder condiments(String condiments) {
+            this.condiments = condiments;
+            return this;
+        }
+        public Builder dressing(String dressing) {
+            this.dressing = dressing;
+            return this;
+        }
+        public Builder meat(String meat) {
+            this.meat = meat;
+            return this;
+        }
     }
-    public LunchBuilder(String bread, String condiments) {
-        this(bread);
-        this.condiments = condiments;
-    }
-    public LunchBuilder(String bread, String condiments, String dressing) {
-        this(bread, condiments);
-        this.dressing = dressing;
-    }
-    public LunchBuilder(String bread, String condiments, String dressing, String meat) {
-        this(bread, condiments, dressing);
-        this.meat = meat;
+
+    private final String bread;
+    private final String condiments;
+    private final String dressing;
+    private final String meat;
+
+    private LunchBuilder(Builder builder) {
+        this.bread = builder.bread;
+        this.condiments = builder.condiments;
+        this.dressing = builder.dressing;
+        this.meat = builder.meat;
     }
 
 }

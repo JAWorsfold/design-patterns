@@ -12,7 +12,12 @@ public class LunchBuilderDemo {
 //        lunchBuilder.setMeat("Ham");
 
         // using telescoping constructors
-        LunchBuilder lunchBuilder = new LunchBuilder("Wheat", "Lettuce", "Mustard", "Ham");
+//        LunchBuilderTele lunchBuilder = new LunchBuilderTele("Wheat", "Lettuce", "Mustard", "Ham");
+
+        // using a Builder pattern
+        LunchBuilder.Builder builder = new LunchBuilder.Builder();
+        builder.bread("Wheat").condiments("Lettuce").dressing("Mayo").meat("Turkey");
+        LunchBuilder lunchBuilder = builder.build();
 
         System.out.println(lunchBuilder.getBread());
         System.out.println(lunchBuilder.getCondiments());
